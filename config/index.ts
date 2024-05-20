@@ -27,7 +27,14 @@ export default defineConfig(async (merge, { command, mode }) => {
       options: {},
     },
     framework: 'react',
-    compiler: 'webpack5',
+    compiler: {
+      type: 'webpack5',
+      // 依赖预加载，配置参考：https://docs.taro.zone/docs/prebundle
+      // FIXME: 开启后会导致build包异常
+      // prebundle: {
+      //   enable: true,
+      // },
+    },
     cache: {
       // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
       enable: false,
@@ -40,8 +47,11 @@ export default defineConfig(async (merge, { command, mode }) => {
         // 尺寸单位转换，默认配置请参考：https://docs.taro.zone/docs/size#%E9%85%8D%E7%BD%AE
         pxtransform: {
           enable: true,
-          config: {},
+          config: {
+            onePxTransform: false,
+          },
         },
+        // 小程序端样式引用本地资源内联
         url: {
           enable: true,
           config: {
@@ -55,9 +65,16 @@ export default defineConfig(async (merge, { command, mode }) => {
           config: {
             // 转换模式，取值为 global/module
             namingPattern: 'module',
-            generateScopedName: '[name]__[local]___[hash:base64:5]',
+            generateScopedName: '[name]__[local]___[hash:5]',
           },
         },
+      },
+      // 智能提取分包依赖，配置参考：https://docs.taro.zone/docs/mini-split-chunks-plugin
+      optimizeMainPackage: {
+        enable: true,
+      },
+      miniCssExtractPluginOption: {
+        ignoreOrder: true,
       },
       webpackChain(chain) {
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin);

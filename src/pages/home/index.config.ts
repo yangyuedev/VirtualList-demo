@@ -19,7 +19,7 @@ export default definePageConfig({
   // 页面上拉触底事件触发时距页面底部距离，单位为 px
   // onReachBottomDistance: 50,
   // 设置为 true 则页面整体不能上下滚动。只在页面配置中有效，无法在 app.json 中设置
-  // disableScroll: false,
+  disableScroll: true,
   // 禁止页面右滑手势返回
   // disableSwipeBack: false,
   // 是否启用分享给好友

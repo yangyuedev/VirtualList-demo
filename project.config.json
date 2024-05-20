@@ -4,12 +4,20 @@
   "description": "taro starter",
   "appid": "touristappid",
   "setting": {
-    "urlCheck": true,
-    "es6": false,
+    "urlCheck": false,
+    "es6": true,
+    "postcss": false,
+    "minified": false,
     "enhance": false,
     "compileHotReLoad": false,
-    "postcss": false,
-    "minified": false
+    "newFeature": true,
+    "autoAudits": false,
+    "coverView": true,
+    "showShadowRootInWxmlPanel": false,
+    "scopeDataCheck": false,
+    "useCompilerModule": false,
+    "preloadBackgroundData": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "libVersion": "widelyUsed"
 }

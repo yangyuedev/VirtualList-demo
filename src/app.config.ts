@@ -1,6 +1,6 @@
 // 全局配置，参考：https://docs.taro.zone/docs/app-config
 export default defineAppConfig({
-  pages: ['pages/home/index', 'pages/me/index'],
+  pages: ['pages/home/index'],
   // 设置小程序的状态栏、导航条、标题、窗口背景色，默认配置参考：https://docs.taro.zone/docs/app-config#window
   window: {
     // 导航栏背景颜色，如 #000000
@@ -25,40 +25,6 @@ export default defineAppConfig({
     onReachBottomDistance: 50,
     // 屏幕旋转设置，支持 auto / portrait / landscape
     pageOrientation: 'portrait',
-  },
-  // 配置Tab栏的表现，参考：https://docs.taro.zone/docs/app-config#tabbar
-  tabBar: {
-    // tab 上的文字默认颜色，仅支持十六进制颜色
-    color: '',
-    // tab 上的文字选中时的颜色，仅支持十六进制颜色
-    selectedColor: '',
-    // tab 的背景色，仅支持十六进制颜色
-    backgroundColor: '',
-    // tab 的列表，详见 list 属性说明，最少 2 个、最多 5 个 tab
-    list: [
-      {
-        // 页面路径，必须在 pages 中先定义
-        pagePath: 'pages/home/index',
-        // tab 上按钮文字
-        text: 'Home',
-        // 图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，不支持网络图片。
-        // 当 position 为 top 时，不显示 icon。
-        iconPath: 'assets/images/tabs/home_fill.png',
-        // 选中时的图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，不支持网络图片。
-        // 当 position 为 top 时，不显示 icon。
-        selectedIconPath: 'assets/images/tabs/home_fill.png',
-      },
-      {
-        pagePath: 'pages/me/index',
-        text: 'Me',
-        iconPath: 'assets/images/tabs/me_fill.png',
-        selectedIconPath: 'assets/images/tabs/me_fill.png',
-      },
-    ],
-    // tabBar 的位置，仅支持 bottom / top
-    position: 'bottom',
-    // 自定义 tabBar
-    custom: false,
   },
   // 启用分包加载时，声明项目分包结构，参考：https://docs.taro.zone/docs/app-config#subpackages
   subPackages: [],
